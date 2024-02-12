@@ -1,0 +1,26 @@
+# Compose fileのバージョンを指定する。
+# 最新バージョンを使用する場合は、指定不要となる。
+# version: '3.9'
+
+services:
+
+  ################################
+  # Laravel
+  ################################
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    image: laravel-app
+    container_name: laravel-app
+    tty: true
+    ports:
+      - "8000:80"
+    volumes:
+      - ./docker/app/src:/var/www/html
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
