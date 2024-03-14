@@ -19,8 +19,8 @@ services:
     volumes:
       - ./docker/app/src:/var/www/html
     networks:
-      - app
+      - shared-network
 
 networks:
-  app:
-    driver: bridge
+  shared-network:
+    external: true
