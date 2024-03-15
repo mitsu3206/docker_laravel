@@ -9,8 +9,8 @@ services:
   ################################
   app:
     build:
-      context: .
-      dockerfile: ./docker/app/Dockerfile
+      context: ./docker/app
+      dockerfile: Dockerfile
     image: laravel-app
     container_name: laravel-app
     tty: true
